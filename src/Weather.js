@@ -6,8 +6,7 @@ class Weather extends React.Component {
         super(props);
         this.state = {
             zip: '',
-            weather: [],
-            text: ''
+            weather: []
         }
     }
     render() {
@@ -17,7 +16,7 @@ class Weather extends React.Component {
                 <input type="number" onChange={(e) => {this._setZip(e.target.value)}} placeholder="Weather by zip code"></input>
                 <ul>
                     {
-                        this.state.weather.main ? [<li key={'city'}>City: {this.state.weather.name}</li>, <li key={'temp'}>Temp: {this.state.weather.main.temp}</li>, <li key={'weather'}>Weather: {this.state.weather.weather[0].main}</li>] : null
+                        this.state.weather.main ? [<li key={'city'}>City: {this.state.weather.name}</li>, <li key={'temp'}>Temp: {Math.floor(this.state.weather.main.temp - 273) * 9/5 + 32}</li>, <li key={'weather'}>Weather: {this.state.weather.weather[0].main}</li>] : null
                     }
                 </ul>
             </div>
@@ -30,7 +29,7 @@ class Weather extends React.Component {
             try {
                 const response = await axios.get(`http://api.openweathermap.org/data/2.5/weather?zip=${this.state.zip}&APPID=544e633f1a1d6d7bb3378ec526f12f59`);
                 this.setState({
-                    weather: response.data
+                    weather: response.data,
                 })
             } catch(error) {
                 return error
