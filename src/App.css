@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  padding: 5% 20%;
 }
 
 .App-logo {
@@ -19,10 +20,6 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
 li {
   list-style: none;
 }
@@ -32,7 +29,11 @@ ul {
 }
 
 h2 {
-  background-color: azure;
+  background-color: goldenrod;
+}
+
+.root {
+  
 }
 
 @keyframes App-logo-spin {
