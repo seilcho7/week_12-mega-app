@@ -12,7 +12,7 @@ class Fortune extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="text-center">
                 <h2>Fortune</h2>
                 <ul>
                     {

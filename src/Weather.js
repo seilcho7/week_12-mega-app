@@ -6,7 +6,8 @@ class Weather extends React.Component {
         super(props);
         this.state = {
             zip: '',
-            weather: []
+            weather: [],
+            error: ''
         }
     }
     render() {
@@ -16,7 +17,7 @@ class Weather extends React.Component {
                 <input type="number" onChange={(e) => {this._setZip(e.target.value)}} placeholder="Weather by zip code"></input>
                 <ul>
                     {
-                        this.state.weather.main ? [<li key={'city'}>City: {this.state.weather.name}</li>, <li key={'temp'}>Temp: {Math.floor(this.state.weather.main.temp - 273) * 9/5 + 32}</li>, <li key={'weather'}>Weather: {this.state.weather.weather[0].main}</li>] : null
+                        this.state.weather.main ? [<li key={'city'}>City: {this.state.weather.name}</li>, <li key={'temp'}>Temp: {Math.floor(this.state.weather.main.temp - 273) * 9/5 + 32}</li>, <li key={'weather'}>Weather: {this.state.weather.weather[0].main}</li>] : this.state.error
                     }
                 </ul>
             </div>
@@ -32,7 +33,10 @@ class Weather extends React.Component {
                     weather: response.data,
                 })
             } catch(error) {
-                return error
+                this.setState({
+                    weather: [],
+                    error: 'Zip code not available'
+                })
             }
         }
     }
