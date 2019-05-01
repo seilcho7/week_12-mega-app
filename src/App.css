@@ -22,6 +22,7 @@
 
 li {
   list-style: none;
+  margin: 20px;
 }
 
 ul {
@@ -32,8 +33,16 @@ h2 {
   background-color: goldenrod;
 }
 
-.root {
-  
+img {
+  width: 100%;
+}
+
+button {
+  margin: 12px;
+}
+
+input {
+  margin: 12px;
 }
 
 @keyframes App-logo-spin {
